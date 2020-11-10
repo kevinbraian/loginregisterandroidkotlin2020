@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "532119153885",
+    "firebase_url": "https://cursokotlinandroid2020.firebaseio.com",
+    "project_id": "cursokotlinandroid2020",
+    "storage_bucket": "cursokotlinandroid2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532119153885:android:fd8264a687a60da9f37f34",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532119153885-sopt7q4j17814s5lk87kt97ihp5fml69.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "ac1bd313c544eb3508890ea5281bc676d57521d1"
+          }
+        },
+        {
+          "client_id": "532119153885-c27pjll3chiljqcdpjkhs4bmb882tsla.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8C1jxhjHKVEOMOwaZ_SG011dLIc0TrEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532119153885-c27pjll3chiljqcdpjkhs4bmb882tsla.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

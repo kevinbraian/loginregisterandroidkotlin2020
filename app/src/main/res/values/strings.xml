@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="inicia_sesi_n">Inicia sesión</string>
+    <string name="iniciar_sesi_n">Iniciar sesión</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+</resources>
