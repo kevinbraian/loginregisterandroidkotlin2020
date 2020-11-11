@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".AuthActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="43dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/googleButton"
+        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.633"
+        app:srcCompat="@drawable/googleg_standard_color_18" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="221dp"
@@ -27,10 +39,9 @@
         android:text="@string/iniciar_sesi_n"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.619" />
+        app:layout_constraintVertical_bias="0.634" />
 
     <EditText
         android:id="@+id/et_password"
@@ -44,11 +55,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_user_name"
+        app:layout_constraintTop_toBottomOf="@+id/et_user"
         app:layout_constraintVertical_bias="0.061" />
 
     <EditText
-        android:id="@+id/et_user_name"
+        android:id="@+id/et_user"
         android:layout_width="213dp"
         android:layout_height="62dp"
         android:layout_marginBottom="12dp"
@@ -64,15 +75,43 @@
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="153dp"
+        android:layout_height="45dp"
         android:layout_marginStart="32dp"
         android:text="@string/registrarse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_logout"
+        app:layout_constraintHorizontal_bias="0.429"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.692" />
+        app:layout_constraintVertical_bias="0.787" />
+
+    <Button
+        android:id="@+id/googleButton"
+        android:layout_width="106dp"
+        android:layout_height="45dp"
+        android:text="Google"
+        android:textColor="#000000"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.586"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.633"
+        app:srcCompat="@drawable/googleg_standard_color_18" />
+
+    <LinearLayout
+        android:id="@+id/AuthLayout"
+        android:layout_width="325dp"
+        android:layout_height="362dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

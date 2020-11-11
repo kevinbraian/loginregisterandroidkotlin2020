@@ -7,4 +7,6 @@
     <string name="registrarse">Registrarse</string>
     <string name="bienvenido">Bienvenido</string>
     <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="google">Google</string>
+    <string name="prefs_file">com.example.test.PREFERENCE_FILE_KEY</string>
 </resources>
