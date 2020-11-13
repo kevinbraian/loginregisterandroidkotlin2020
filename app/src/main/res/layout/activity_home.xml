@@ -38,7 +38,7 @@
             app:layout_constraintVertical_bias="0.32" />
 
         <Button
-            android:id="@+id/btn_logout"
+            android:id="@+id/btn_login"
             android:layout_width="170dp"
             android:layout_height="64dp"
             android:text="@string/cerrar_sesion"
@@ -47,7 +47,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintVertical_bias="0.628" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
