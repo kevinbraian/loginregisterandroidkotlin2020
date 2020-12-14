@@ -9,10 +9,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AuthActivity">
+        tools:context=".AuthActivity"
+        tools:layout_editor_absoluteX="-81dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/bienvenidoTextView"
             android:layout_width="221dp"
             android:layout_height="39dp"
             android:text="@string/bienvenido"
@@ -23,30 +25,112 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.135" />
+            app:layout_constraintVertical_bias="0.089" />
 
         <TextView
-            android:id="@+id/UsernameTextView"
-            android:layout_width="193dp"
+            android:id="@+id/emailTextView"
+            android:layout_width="189dp"
             android:layout_height="40dp"
-            android:text="@string/username"
+            android:text="@string/email"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.478"
+            app:layout_constraintHorizontal_bias="0.733"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.32" />
+            app:layout_constraintVertical_bias="0.227" />
+
+        <EditText
+            android:id="@+id/nameTextView"
+            android:layout_width="189dp"
+            android:layout_height="40dp"
+            android:autofillHints=""
+            android:hint="@string/nombre"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/btn_logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.734"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTextView"
+            app:layout_constraintVertical_bias="0.068" />
+
+        <EditText
+            android:id="@+id/apellidoTextView"
+            android:layout_width="189dp"
+            android:layout_height="40dp"
+            android:autofillHints=""
+            android:hint="@string/apellido"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/btn_logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.734"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTextView"
+            app:layout_constraintVertical_bias="0.226" />
+
+        <EditText
+            android:id="@+id/addressTextView"
+            android:layout_width="189dp"
+            android:layout_height="40dp"
+            android:autofillHints=""
+            android:hint="@string/casa_calle_barrio"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/btn_logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.734"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTextView"
+            app:layout_constraintVertical_bias="0.39" />
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_logout"
             android:layout_width="170dp"
-            android:layout_height="64dp"
+            android:layout_height="50dp"
             android:text="@string/cerrar_sesion"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.628" />
+            app:layout_constraintTop_toBottomOf="@+id/bienvenidoTextView"
+            app:layout_constraintVertical_bias="0.887" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:text="@string/guardar"
+            app:backgroundTint="#FF5722"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bienvenidoTextView"
+            app:layout_constraintVertical_bias="0.61" />
+
+        <Button
+            android:id="@+id/btn_get"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:text="@string/recuperar"
+            app:backgroundTint="#FF5722"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_save"
+            app:layout_constraintVertical_bias="0.102" />
+
+        <ImageView
+            android:id="@+id/profileimageView"
+            android:layout_width="105dp"
+            android:layout_height="106dp"
+            android:contentDescription="@string/avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.098"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.251"
+            tools:srcCompat="@tools:sample/avatars" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

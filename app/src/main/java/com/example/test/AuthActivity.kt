@@ -13,10 +13,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.*
 import com.google.firebase.auth.GoogleAuthProvider
-import java.util.regex.Pattern
 import java.util.regex.Pattern.compile as compile1
 
 class AuthActivity : AppCompatActivity() {
@@ -27,45 +25,45 @@ class AuthActivity : AppCompatActivity() {
 
     }
     
-    private fun validation(pass: String): Boolean {
-        val UpperCasePattern = compile1("[A-Z ]")
-        val lowerCasePattern  = compile1("[a-z ]")
-        val digitCasePattern = compile1("[0-9 ]")
+    private fun validation(): Boolean {
+        val UpperCasePattern = compile1("[A-Z]")
+        val lowerCasePattern  = compile1("[a-z]")
+        val digitCasePattern = compile1("[0-9]")
         val specialCharPattern = compile1("[/*!@#$%^&()¨{}|?<>]")
-        val et_user_name = findViewById<EditText>(R.id.et_user)
+        val et_email_name = findViewById<EditText>(R.id.et_email)
         val et_password = findViewById<EditText>(R.id.et_password)
-        val user_name = et_user_name.text
+        val email_name = et_email_name.text
         val password = et_password.text
         val caracteres = listOf('"', '\'', ',', 'ü', 'Ü', 'á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú', '\n', '\r')
         val flag = true
 
-        if (user_name.isEmpty() or password.isEmpty()) {
+        if (email_name.isEmpty() or password.isEmpty()) {
             Toast.makeText(this@AuthActivity, "el usuario y/o contraseña no debe estar vacio", Toast.LENGTH_SHORT).show()
             return false
         }
-        if ((user_name.length < 8) or (password.length < 8)) {
+        if ((email_name.length < 8) or (password.length < 8)) {
             Toast.makeText(this@AuthActivity, "El usuario y/o contraseña debe tener al menos 8 caracteres", Toast.LENGTH_SHORT).show()
             return false
         }
         for (x in caracteres.indices) {
-            if ((user_name.indexOf(caracteres[x]) != -1) or (password.indexOf(caracteres[x]) != -1)) {
+            if ((email_name.indexOf(caracteres[x]) != -1) or (password.indexOf(caracteres[x]) != -1)) {
                 Toast.makeText(this@AuthActivity, "El usuario no puede tener los siguientes caracteres : Comillas, punto y coma, diéresis, tildes, escapes", Toast.LENGTH_SHORT).show()
                 return false
             }
         }
-        if (!UpperCasePattern.matcher(pass).find()) {
+        if (!UpperCasePattern.matcher(password).find()) {
             Toast.makeText(this@AuthActivity, "La contraseña debe tener una mayúscula", Toast.LENGTH_SHORT).show()
             return false
         }
-        if (!lowerCasePattern.matcher(pass).find()) {
+        if (!lowerCasePattern.matcher(password).find()) {
             Toast.makeText(this@AuthActivity, "La contraseña debe tener una minúscula", Toast.LENGTH_SHORT).show()
             return false
         }
-        if (!digitCasePattern.matcher(pass).find()) {
+        if (!digitCasePattern.matcher(password).find()) {
             Toast.makeText(this@AuthActivity, "La contraseña debe tener un número", Toast.LENGTH_SHORT).show()
             return false
         }
-        if (!specialCharPattern.matcher(pass).find()) {
+        if (!specialCharPattern.matcher(password).find()) {
             Toast.makeText(this@AuthActivity, "La contraseña debe tener un caracter especial", Toast.LENGTH_SHORT).show()
             return false
         }
@@ -83,14 +81,11 @@ class AuthActivity : AppCompatActivity() {
         /////////////////////////////
         title = "Autenticación"
 
-        val et_user_name = findViewById<EditText>(R.id.et_user)
+        val et_email_name = findViewById<EditText>(R.id.et_email)
         val et_password = findViewById<EditText>(R.id.et_password)
-        val btn_submit = findViewById<Button>(R.id.btn_login)
+        val btn_submit = findViewById<Button>(R.id.btn_logout)
         val btn_register = findViewById<Button>(R.id.btn_register)
         val btn_google = findViewById<Button>(R.id.googleButton)
-        val user_name = et_user_name.text
-        val password = et_password.text
-        val user = user_name.toString()
         val GOOGLE_SIGN_IN = 1
 
         btn_google.setOnClickListener {
@@ -106,9 +101,11 @@ class AuthActivity : AppCompatActivity() {
         }
 
         btn_submit.setOnClickListener {
-
-            if (validation(password.toString())){
-                getInstance().signInWithEmailAndPassword(user_name.toString(), password.toString()).addOnCompleteListener{
+            val email_name = et_email_name.text
+            val user = email_name.toString()
+            val password = et_password.text
+            if (validation()){
+                getInstance().signInWithEmailAndPassword(email_name.toString(), password.toString()).addOnCompleteListener{
                     if (it.isSuccessful) {
                         Toast.makeText(this@AuthActivity, getString(R.string.logsucc), Toast.LENGTH_SHORT).show()
                         showHome(user)
@@ -122,8 +119,11 @@ class AuthActivity : AppCompatActivity() {
         }
 
         btn_register.setOnClickListener {
-
-            if (validation(password.toString())) {
+            val email_name = et_email_name.text
+            val user = email_name.toString()
+            val password = et_password.text
+            if (validation()) {
+            //if (validation(password.toString())) {
                 Toast.makeText(this@AuthActivity, "Register Successful", Toast.LENGTH_SHORT).show()
                 //Se creara el usuario
                 getInstance().createUserWithEmailAndPassword(user, password.toString()).addOnCompleteListener {
@@ -141,11 +141,11 @@ class AuthActivity : AppCompatActivity() {
 
     private fun session() {
         val prefs = getSharedPreferences(getString(R.string.prefs_file), MODE_PRIVATE)
-        val email = prefs.getString("et_user_name", null)
-        if (email != null) {
+        val user = prefs.getString("et_email_name", null)
+        if (user != null) {
             val auth_layout = findViewById<LinearLayout>(R.id.AuthLayout)
             auth_layout.visibility = View.INVISIBLE
-            showHome(email)
+            showHome(user)
         }
     }
 
@@ -170,7 +170,7 @@ class AuthActivity : AppCompatActivity() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
 
             try {
-                val user = findViewById<EditText>(R.id.et_user).text.toString()
+                val user = findViewById<EditText>(R.id.et_email).text.toString()
                 val account = task.getResult(ApiException::class.java)
                 if (account != null) {
                     val credential = GoogleAuthProvider.getCredential(account.idToken, null)
@@ -189,10 +189,13 @@ class AuthActivity : AppCompatActivity() {
 
     }
 
-    private fun showHome(et_user_name: String) {
+
+    private fun showHome(et_email_name: String) {
         val homeIntent = Intent(this, HomeActivity::class.java).apply {
-            putExtra("et_user_name", et_user_name)
+            putExtra("et_email", et_email_name)
         }
         this.startActivity(homeIntent)
     }
+
+
 }
